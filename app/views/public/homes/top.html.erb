@@ -1,10 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3" style="background-color: orange;">
-      <h1>ジャンル検索</h1>
+      <h4>ジャンル検索</h4>
+      <p>ケーキ</p>
+      <p>焼き菓子</p>
+      <p>プリン</p>
+      <p>キャンディ</p>
     </div>
     <div class="col-md-8">
-      <h1>ようこそ長野ケーキへ</h1>
+      <%= image_tag 'home.jpg', size: '700x400' %>
+      <p class="explanation">
+        ようこそながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。
+      </p>
     </div>
 </div>
 
@@ -24,4 +34,5 @@
       </table>
     </div>
   </div>
+  <%= link_to "全ての商品を見る>>", root_path %>
 </div>
