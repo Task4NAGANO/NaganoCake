@@ -1,4 +1,48 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'oders/show'
+  end
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :admin do
+    get 'genres/index'
+    get 'genres/edit'
+  end
+  namespace :admin do
+    get 'items/index'
+    get 'items/new'
+    get 'items/show'
+    get 'items/edit'
+  end
+  namespace :admin do
+    get 'homes/top'
+  end
+  namespace :public do
+    get 'address/index'
+    get 'address/edit'
+  end
+  namespace :public do
+    get 'orders/new'
+    get 'orders/log'
+    get 'orders/thanx'
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :public do
+    get 'cart_items/index'
+  end
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/quit'
+  end
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   scope module: :public do
     root to: "homes#top"
     get "about" => "homes#about"
