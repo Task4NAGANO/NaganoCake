@@ -2,29 +2,43 @@
   <div class="row">
     <div class="mx-auto">
 
-      <h2 class="title_name">ログイン</h2>
-      <h4 class="headline">会員の方はこちらからログイン</h4>
+      <h3 class="title_name">ログイン</h3>
 
+
+      <div class="table">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :"メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :"パスワード" %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-
-        <div class="actions">
-          <%= f.submit "ログイン" %>
-        </div>
+        <table class="table_field">
+          <tbody>
+            <tr>
+              <td><h5 class="headline">会員の方はこちらからログイン</h5></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><%= f.label :"メールアドレス" %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :"パスワード" %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "ログイン" %></td>
+            </tr>
+        </tbody>
       <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <h4 class="headline">会員登録がお済みでない方</h4>
-      <p><%= render "public/shared/links" %>　から新規登録を行なってください</p>
-
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <div class="headline">
+        <h5 class="headline">会員登録がお済みでない方</h5><br>
+        <p><%= render "public/shared/links" %>　から新規登録を行なってください</p>
+      </div>
     </div>
   </div>
 </div>

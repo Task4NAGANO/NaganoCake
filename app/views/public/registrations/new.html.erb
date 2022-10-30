@@ -12,72 +12,100 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <%= f.label :"名前" %><br>
-
-      <%= f.label :"フリガナ" %><br>
-
-      <%= f.label :"メールアドレス" %><br>
-
-      <%= f.label :"郵便番号(ハイフンなし)" %><br>
-      <%= f.label :"住所" %><br>
-      <%= f.label :"電話番号(ハイフンなし)" %><br>
-
-
-      <%= f.label :"パスワード" %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
-      <% end %><br>
-
-      <%= f.label :"パスワード(確認用)" %>
-
-
-    </div>
-
-    <div class="col-md-8">
-      <div class="field">
-        <%= f.label :"姓" %>
-        <%= f.text_field :first_name %>
-        <%= f.label :"名" %>
-        <%= f.text_field :last_name %>
-      </div>
-      <div class="field">
-        <%= f.label :"セイ" %>
-        <%= f.text_field :first_name_kana %>
-        <%= f.label :"メイ" %>
-        <%= f.text_field :last_name_kana %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.text_field :postal_code %>
-      </div>
-
-      <div class="field">
-        <%= f.text_field :address %>
-      </div>
-
-      <div class="field">
-        <%= f.text_field :telephone_number %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "新規登録" %>
-      </div>
-    <% end %>
-
+    <div class="mx-auto">
+      <table class="table_field">
+        <tbody>
+          <tr>
+            <div class="field">
+              <td><%= f.label :"名前" %></td>
+              <td><%= f.label :"姓" %></td>
+              <td><%= f.text_field :first_name %></td>
+              <td><%= f.label :"名" %></td>
+              <td><%= f.text_field :last_name %></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td><%= f.label :"フリガナ" %></td>
+            <td><%= f.label :"セイ" %></td>
+            <td><%= f.text_field :first_name_kana %></td>
+            <td><%= f.label :"メイ" %></td>
+            <td><%= f.text_field :last_name_kana %></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td><%= f.label :"メールアドレス" %></td>
+            <td></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            <td></td>
+            <td></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td><%= f.label :"郵便番号(ハイフンなし)" %></td>
+            <td></td>
+            <td><%= f.text_field :postal_code %></td>
+            <td></td>
+            <td></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td><%= f.label :"住所" %></td>
+            <td></td>
+            <td><%= f.text_field :address %></td>
+            <td></td>
+            <td></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td><%= f.label :"電話番号(ハイフンなし)" %></td>
+            <td></td>
+            <td><%= f.text_field :telephone_number %></td>
+            <td></td>
+            <td></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td>
+              <%= f.label :"パスワード" %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <% end %>
+            </td>
+            <td></td>
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+            <td></td>
+            <td></td>
+            </div>
+          </tr>
+          <tr>
+            <div class="field">
+            <td><%= f.label :"パスワード(確認用)" %></td>
+            <td></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+            <td></td>
+            <td></td>
+            </div>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="actions">
+                <%= link_to "新規登録", about_path %>
+                <% end %>
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
