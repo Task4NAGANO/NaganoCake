@@ -97,7 +97,7 @@
             <td></td>
             <td>
               <div class="actions">
-                <%= link_to "新規登録", about_path %>
+                <%= f.submit "新規登録" %>
                 <% end %>
               </div>
             </td>
@@ -112,7 +112,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2 class="title_name">既に登録済みの方</h2>
       <p><%= render "public/shared/links" %>　からログインしてください</p>
     </div>

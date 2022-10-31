@@ -1,35 +1,59 @@
-<h3>マイページ</h3>
-<h3>登録情報</h3>
-<%= link_to "編集する", root_path %>
-<table boder="1" >
-  <tbody>
-    <tr>
-      <th>氏名</th>
-      <th></th>
-    </tr>
-    <tr>
-      <th>カナ</th>
-      <th></th>
-    </tr>
-    <tr>
-      <th>郵便番号</th>
-      <th></th>
-    </tr>
-    <tr>
-      <th>住所</th>
-      <th></th>
-    </tr>
-    <tr>
-      <th>電話番号</th>
-      <th></th>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <th></th>
-    </tr>
-  </tbody>
-</table>
-<%= link_to "一覧を見る", root_path %>
-<p>注文履歴</p>
-<%= link_to "一覧を見る", root_path　%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
 
+      <h3>マイページ</h3>
+      <h3>登録情報</h3>
+      <%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>
+      <table boder="1">
+        <tbody>
+          <tr>
+            <td>氏名</td>
+            <td>
+              <%= @customer.first_name %>
+              <%= @customer.last_name %>
+            </td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td>
+              <%= @customer.first_name_kana %>
+              <%= @customer.last_name_kana %>
+              </td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= @customer.postal_code%></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table_field">
+        <tbody>
+          <tr>
+            <td><p>配送先</p></td>
+            <td><%= link_to "一覧を見る", address_index_path, class: "btn btn-primary" %></td>
+          </tr>
+          <tr>
+            <td><p>注文履歴</p></td>
+            <td><%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
