@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
     @order = Oder.find(params[:id])
   end
 
-  def thanx
+  def thanks
   end
 
   def index

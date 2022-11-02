@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get "/" => "homes#top"
     resources :oders, only:[:show]
     resources :customers, only:[:index, :show, :edit]
-    resources :genres, only:[:index, :edit]
-    resources :items, only:[:index, :new, :show, :edit]
+    resources :genres, only:[:index, :edit, :create, :update]
+    resources :items, only:[:index, :new, :show, :edit, :create, :update]
   end
 
 
@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     get "cart_items" => "cart_items#index"
     resources :items, only:[:index, :show]
     resources :customers, only:[:show, :edit, :quit, :update]
-    resources :orders, only:[:new, :log, :thanx, :index, :show, :create]
-    resources :address, only:[:index, :edit]
+    resources :orders, only:[:new, :confirm, :thanks, :index, :show, :create]
+    resources :addresses, only:[:index, :edit]
   end
 
 

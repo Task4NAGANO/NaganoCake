@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+.explanation {
+ background-image: url("/images/home.jpg");
+ background-size: cover;
+ background-position: center;
+}
+
+.about_text {
+ text-align: center;
+}

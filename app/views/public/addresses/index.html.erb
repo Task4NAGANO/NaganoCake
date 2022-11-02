@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
+      <h3>配送先一覧</h3>
+      <teble class="table_field">
+        <tbody>
+        <% @addresses.each do |address| %>
+          <tr>
+            <td>郵便番号(ハイフンなし)</td>
+            <td><%= address.postal_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= address.address %></td>
+          </tr>
+          <tr>
+            <td>宛名</td>
+            <td><%= address.name %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </teble>
+    </div>
+  </div>
+</div>

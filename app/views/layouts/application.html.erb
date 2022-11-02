@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>NaganoCAKE</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,12 +15,9 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow">
-      <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand p-3" href="/"><%= image_tag('logo.jpg') %></a>
         <div class="container">
-          <%= link_to root_path do %>
-            <%= image_tag "logo.jpg", size: "200x60" %>
-          <% end %>
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,43 +27,69 @@
                 <% if customer_signed_in? %>
                 <li>
                   <%= link_to customer_path(current_customer), class: "nav-link text-dark" do %>
-                     マイページ
+                    マイページ
                   <% end %>
                 </li>
                 <li>
                   <%= link_to items_path, class: "nav-link text-dark" do %>
-                     商品一覧
+                    商品一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to  cart_items_path, class: "nav-link text-dark" do %>
-                     カート
+                  <%= link_to cart_items_path, class: "nav-link text-dark" do %>
+                    カート
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-dark" do  %>
-                     ログアウト
+                    ログアウト
+                  <% end %>
+                </li>
+                <% elsif admin_signed_in? %>
+                <li>
+                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
+                    商品一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_customers_path, class: "nav-link text-dark" do %>
+                    会員一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_path, class: "nav-link text-dark" do %>
+                    注文履歴一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_genres_path, class: "nav-link text-dark" do %>
+                    ジャンル一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_admin_session_path,　method: :delete, class: "nav-link text-dark" do %>
+                    ログアウト
                   <% end %>
                 </li>
                 <% else %>
                 <li>
                   <%= link_to about_path, class: "nav-link text-dark" do %>
-                     <span>About</span>
+                    <span>About</span>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to items_path, class: "nav-link text-dark" do %>
-                     商品一覧
+                    商品一覧
                   <% end %>
                 </li>
                 <li>
                   <%= link_to new_customer_registration_path, class: "nav-link text-dark" do %>
-                     新規登録
+                    新規登録
                   <% end %>
                 </li>
                 <li>
                   <%= link_to new_customer_session_path, class: "nav-link text-dark" do  %>
-                     ログイン
+                    ログイン
                   <% end %>
                 </li>
                 <% end %>

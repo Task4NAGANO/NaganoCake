@@ -5,5 +5,4 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-
 end

@@ -1,21 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h3>userの注文履歴</h3>
-      <table class="table_field">
-        <thead>
-          <tr>
-            <th>購入日時</th>
-            <th>注文個数</th>
-            <th>注文ステータス</th>
-          </tr>
-        </thead>
+    <div class="col-sm-3 col-md-3 col-lg-3 px-2 px-sm-0 mx-5">
+      <h3>商品詳細</h3>
+      <%= image_tag @item.image, size: "300x300" %>
+    </div>
+    <div class="col-sm-auto col-md-auto col-lg-auto px-5 px-sm-0 mx-7">
+      <table class="table table-striped">
         <tbody>
           <tr>
+            <td>商品名</td>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td>商品説明</td>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
             <td></td>
+          </tr>
+          <tr>
+            <td>
+              税込価格<br>
+              (税抜価格)
+            </td>
+            <td><%= @item.price %></td>
+          </tr>
+          <tr>
+            <td>販売ステータス</td>
+            <td><%#= @item.name %></td>
+          </tr>
+          <tr>
             <td></td>
-            <td></td>
-            <td></td>
+            <td><%= link_to "編集する", edit_admin_item_path(@item) %></td>
           </tr>
         </tbody>
       </table>

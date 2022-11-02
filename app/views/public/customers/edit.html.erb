@@ -7,30 +7,30 @@
   <%= form_with model: @customer do |f| %>
   <tbody>
     <tr>
-      <th><%= f.label :"名前" %></th>
-      <th><%= f.text_field :first_name %></th>
-      <th><%= f.text_field :last_name %></th>
+      <td><%= f.label :"名前" %></td>
+      <td><%= f.text_field :first_name %></td>
+      <td><%= f.text_field :last_name %></td>
     </tr>
     <tr>
-      <th><%= f.label :"カナ" %></th>
-      <th><%= f.text_field :first_name_kana %></th>
-      <th><%= f.text_field :last_name_kana %></th>
+      <td><%= f.label :"カナ" %></td>
+      <td><%= f.text_field :first_name_kana %></td>
+      <td><%= f.text_field :last_name_kana %></td>
     </tr>
     <tr>
-      <th><%= f.label :"郵便番号" %></th>
-      <th><%= f.text_field :postal_code %></th>
+      <td><%= f.label :"郵便番号" %></td>
+      <td><%= f.text_field :postal_code %></td>
     </tr>
     <tr>
-      <th><%= f.label :"住所" %></th>
-      <th><%= f.text_field :address %></th>
+      <td><%= f.label :"住所" %></td>
+      <td><%= f.text_field :address %></td>
     </tr>
     <tr>
-      <th><%= f.label :"電話番号" %></th>
-      <th><%= f.text_field :telephone_number %></th>
+      <td><%= f.label :"電話番号" %></td>
+      <td><%= f.text_field :telephone_number %></td>
     </tr>
     <tr>
-      <th><%= f.label :"メールアドレス" %></th>
-      <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+      <td><%= f.label :"メールアドレス" %></td>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
     </tr>
   </tbody>
 </table>
