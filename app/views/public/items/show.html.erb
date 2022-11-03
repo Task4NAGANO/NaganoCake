@@ -1,18 +1,31 @@
-
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
-      <%#= @item.image %>
+    <div class="col-sm-12 col-md-7 col-lg-3 px-1 px-sm-0 mx-auto">
+      <%= image_tag @item.image, size: "200x200" %>
     </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-        <%#= @item.name %>
-        <%#= @item.introduction %>
-        <%#= @item.price %>
+    <div class="col-sm-12 col-md-5 col-lg-4 px-1 px-sm-0 mx-auto">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= @item.name %></td>
+          </tr>
+          <tr>
+            <td><%= @item.introduction %></td>
+          </tr>
+          <tr>
+            <td>¥<%= @item.price %>(税込)</td>
+          </tr>
+          <tr>
+            <td>
+            <%= form_with model: @cart_item do |f| %>
+              <%= f.hidden_field :item_id, :value => @item.id %>
+              <%= f.select :amount, *[1..10] %>
+              <%= f.submit "カートに入れる" %>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
