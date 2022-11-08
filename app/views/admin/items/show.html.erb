@@ -1,7 +1,7 @@
 <div class="container">
-  <h3>商品詳細</h3>
   <div class="row">
     <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
+      <h3>商品詳細</h3>
       <%= image_tag @item.image, size: "300x300" %>
       <table class="table">
         <tbody>
@@ -15,7 +15,7 @@
           </tr>
           <tr>
             <td>ジャンル</td>
-            <td></td>
+            <td><%#= @item. %></td>
           </tr>
           <tr>
             <td>
@@ -30,7 +30,7 @@
           </tr>
           <tr>
             <td></td>
-            <td><%= link_to "編集する", edit_admin_item_path(@item) %></td>
+            <td><%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %></td>
           </tr>
         </tbody>
       </table>

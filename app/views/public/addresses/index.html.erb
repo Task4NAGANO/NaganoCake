@@ -24,7 +24,7 @@
             </div>
           </tr>
           <tr>
-            <td><%= f.submit "新規登録" %></td>
+            <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
           </tr>
         </tbody>
       <% end %>
@@ -35,7 +35,8 @@
 
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-4 px-5 px-sm-0 mx-auto">
-      <teble boder="1">
+      <teble class="address">
+        <% @addresses.each do |address| %>
         <thead>
           <tr>
             <th>郵便番号</th>
@@ -45,15 +46,16 @@
           </tr>
         </thead>
         <tbody>
-        <% @addresses.each do |address| %>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= address.postal_code %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td><%= link_to "編集する", edit_address_path(address), class: "btn btn-success" %></td>
+            <td><%= link_to "削除する", address_path(address), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
           <tr>
         </tbody>
-      <% end %>
+        <% end %>
       </teble>
-
-</div>
+      </div>
+    </div>
+  </div>

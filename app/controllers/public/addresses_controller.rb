@@ -16,14 +16,21 @@ class Public::AddressesController < ApplicationController
 
   def update
     address = Address.find(params[:id])
-    address.update(address_id)
+    address.update(address_params)
     redirect_to addresses_path
   end
 
-  private
+
+  def destroy
+    address = Address.find(params[:id])
+    address.destroy
+    redirect_to addresses_path
+  end
 
   def address_params
-    params.require(:address).permit(:name, :postal_code, :address)
+    params.require(:address).permit(:name, :postal_code, :address, :customer_id)
   end
+  private
+
 
 end

@@ -7,21 +7,21 @@
         <tbody>
           <tr>
             <div class="field">
-            <td><%= f.label :"商品画像" %></td>
+            <td><%= f.label "商品画像" %></td>
             <td><%= f.file_field :image, accept: "image/*" %></td>
             </div>
           </tr>
           <tr>
-            <td><%= f.label :"商品名" %></td>
+            <td><%= f.label "商品名" %></td>
             <td><%= f.text_field :name %></td>
           </tr>
           <tr>
-            <td><%= f.label :"商品説明" %></td>
+            <td><%= f.label "商品説明" %></td>
             <td><%= f.text_area :introduction %></td>
           </tr>
           <tr>
-            <td>ジャンル</td>
-            <td></td>
+            <td><%= f.label "ジャンル" %></td>
+            <td><%= f.text_field :genre %></td>
           </tr>
           <tr>
             <td>税込価格</td>

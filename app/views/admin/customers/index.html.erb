@@ -3,7 +3,6 @@
     <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
       <h3>会員一覧</h3>
       <table class="table_field">
-      <% @customers.each do |customer| %>
         <thead>
           <tr>
             <th>会員ID</th>
@@ -13,14 +12,15 @@
           </tr>
         </thead>
         <tbody>
+        <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
-            <td><%= customer.name %></td>
+            <td><%= customer.first_name %><%= customer.last_name %></td>
             <td><%= customer.email %></td>
             <td><%#= customer. %></td>
           </tr>
+        <% end %>
         </tbody>
-      <% end %>
       </table>
     </div>
   </div>

@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3" style="background-color: orange;">
+    <div class="col-sm-12 col-md-4 col-lg-4" style="background-color: orange;">
       <h4>ジャンル検索</h4>
       <p>ケーキ</p>
       <p>焼き菓子</p>
       <p>プリン</p>
       <p>キャンディ</p>
     </div>
-    <div class="mx-auto">
-      <div class="explanation">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <div class="shop_image">
         <p>
           <span>
           ようこそながのCAKEへ！<br>
@@ -17,25 +18,23 @@
           購入には会員登録が必要になります。
           </span>
         </p>
-      </div>
-    </div>
-</div>
-
-  <h2　class="new_items">新着商品</h2>
-  <div class="row">
-    <div class="col-md-8">
+      <h2　class="new_items">新着商品</h2>
       <table class="table">
         <tbody>
+          <% @items.each do |item| %>
           <tr>
             <td>
-              <p>商品image</p>
-              <p>商品名</p>
-              <p>¥oooo</p>
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.image, size: "200x200" %>
+              <% end %><br>
+              <%= item.name %><br>
+              <%= item.price %>
             </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
+      <%= link_to "全ての商品を見る>>", items_path %>
     </div>
   </div>
-  <%= link_to "全ての商品を見る>>", items_path %>
 </div>

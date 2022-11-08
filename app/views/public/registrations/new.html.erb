@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <h2 class="title_name">新規会員登録</h2>
+    <h3 class="title_name">新規会員登録</h3>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= form_with model: @customer, url: customer_registration_path do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
     </div>
@@ -17,25 +17,25 @@
         <tbody>
           <tr>
             <div class="field">
-              <td><%= f.label :"名前" %></td>
-              <td><%= f.label :"姓" %></td>
+              <td>名前</td>
+              <td><%= f.label "姓" %></td>
               <td><%= f.text_field :first_name %></td>
-              <td><%= f.label :"名" %></td>
+              <td><%= f.label "名" %></td>
               <td><%= f.text_field :last_name %></td>
             </div>
           </tr>
           <tr>
             <div class="field">
-            <td><%= f.label :"フリガナ" %></td>
-            <td><%= f.label :"セイ" %></td>
+            <td>フリガナ</td>
+            <td><%= f.label "セイ" %></td>
             <td><%= f.text_field :first_name_kana %></td>
-            <td><%= f.label :"メイ" %></td>
+            <td><%= f.label "メイ" %></td>
             <td><%= f.text_field :last_name_kana %></td>
             </div>
           </tr>
           <tr>
             <div class="field">
-            <td><%= f.label :"メールアドレス" %></td>
+            <td><%= f.label "メールアドレス" %></td>
             <td></td>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
             <td></td>
@@ -44,7 +44,7 @@
           </tr>
           <tr>
             <div class="field">
-            <td><%= f.label :"郵便番号(ハイフンなし)" %></td>
+            <td><%= f.label "郵便番号(ハイフンなし)" %></td>
             <td></td>
             <td><%= f.text_field :postal_code %></td>
             <td></td>
@@ -53,7 +53,7 @@
           </tr>
           <tr>
             <div class="field">
-            <td><%= f.label :"住所" %></td>
+            <td><%= f.label "住所" %></td>
             <td></td>
             <td><%= f.text_field :address %></td>
             <td></td>
@@ -62,7 +62,7 @@
           </tr>
           <tr>
             <div class="field">
-            <td><%= f.label :"電話番号(ハイフンなし)" %></td>
+            <td><%= f.label "電話番号(ハイフンなし)" %></td>
             <td></td>
             <td><%= f.text_field :telephone_number %></td>
             <td></td>
@@ -72,7 +72,7 @@
           <tr>
             <div class="field">
             <td>
-              <%= f.label :"パスワード" %>
+              <%= f.label "パスワード" %>
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> 文字以上)</em>
               <% end %>
@@ -85,7 +85,7 @@
           </tr>
           <tr>
             <div class="field">
-            <td><%= f.label :"パスワード(確認用)" %></td>
+            <td><%= f.label "パスワード(確認用)" %></td>
             <td></td>
             <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
             <td></td>
@@ -97,8 +97,8 @@
             <td></td>
             <td>
               <div class="actions">
-                <%= f.submit "新規登録" %>
-                <% end %>
+                <%= f.submit "新規登録", class: "btn btn-success" %>
+
               </div>
             </td>
             <td></td>
@@ -109,12 +109,13 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2 class="title_name">既に登録済みの方</h2>
-      <p><%= render "public/shared/links" %>　からログインしてください</p>
+      <h3 class="title_name">既に登録済みの方</h3>
+      <p><%= render "public/shared/links" %> からログインしてください</p>
     </div>
   </div>
 </div>
