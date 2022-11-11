@@ -1,45 +1,47 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
-      <h3><%#= @customer.id %>さんの会員情報編集</h3>
-      <table class="table_field">
+      <h3><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h3>
+      <%= form_with model: @customer do |f| %>
+      <table class="table">
         <tbody>
           <tr>
             <td>会員ID</td>
-            <td><%#= @customer.id %></td>
+            <td><%= @customer.id %></td>
           </tr>
           <tr>
-            <td>氏名</td>
-            <td><%#= f.text_field :first_name %></td>
-            <td><%#= f.text_field :last_name %></td>
+            <td><%= f.label "氏名" %></td>
+            <td><%= f.text_field :first_name %></td>
+            <td><%= f.text_field :last_name %></td>
           </tr>
           <tr>
-            <td>フリガナ</td>
-            <td><%#= f.text_field :first_name_kana %></td>
-            <td><%#= f.text_field :last_name_kana %></td>
+            <td><%= f.label "フリガナ" %></td>
+            <td><%= f.text_field :first_name_kana %></td>
+            <td><%= f.text_field :last_name_kana %></td>
           </tr>
           <tr>
-            <td>郵便番号</td>
-            <td><%#= f.text_field :postal_code %></td>
+            <td><%= f.label "郵便番号" %></td>
+            <td><%= f.text_field :postal_code %></td>
           </tr>
           <tr>
-            <td>住所</td>
-            <td><%#= f.text_field :address %></td>
+            <td><%= f.label "住所" %></td>
+            <td><%= f.text_field :address %></td>
           </tr>
           <tr>
-            <td>電話番号</td>
-            <td><%#= f.text_field :telephone_number %></td>
+            <td><%= f.label "電話番号" %></td>
+            <td><%= f.text_field :telephone_number %></td>
           </tr>
           <tr>
-            <td>メールアドレス</td>
-            <td><%#= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+            <td><%= f.label "メールアドレス" %></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
           </tr>
           <tr>
-            <td>会員ステータス</td>
+            <td><%= f.label "会員ステータス" %></td>
             <td><%#= @customer.is_deleted %></td>
           </tr>
         </tbody>
       </table>
+      <% end %>
     </div>
   </div>
 </div>

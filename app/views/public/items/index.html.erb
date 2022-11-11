@@ -1,33 +1,30 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-3 col-lg-3" style="background-color: orange;">
-        <h4>ジャンル検索</h4>
-        <p>ケーキ</p>
-       <p>焼き菓子</p>
-        <p>プリン</p>
-        <p>キャンディ</p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="background-color: orange;">
+      <h4>ジャンル検索</h4>
+      <p>ケーキ</p>
+     <p>焼き菓子</p>
+      <p>プリン</p>
+      <p>キャンディ</p>
+    </div>
 
-      <div class="col-sm-12 col-md-7 col-lg-7">
-        <h2>商品一覧</h2>
-        <p>全<%= @items %>件</p>
-        <table class="table　float-left">
-          <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td>
-                <div class="item_nubmer">
-                  <%= link_to item_path(item) do %>
-                  <%= image_tag item.image, size: "200x200" %>
-                  <% end %><br>
-                  <%= item.name %><br>
-                  <%= item.price %>
-                  </div>
-              </td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
+    <div class="col-md-10">
+      <h2>商品一覧</h2>
+      <p>(全<%= @items.count %>件)</p>
+      <div class="row">
+        <% @items.each do |item| %>
+        <div class="col-md-3">
+          <div class="item">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, size: "200x200" %>
+            <% end %>
+            <%= item.name %><br>
+            <%= item.price %><br>
+          </div>
+        </div>
+        <% end %>
+        <%= paginate @items %>
       </div>
     </div>
   </div>
+</div>

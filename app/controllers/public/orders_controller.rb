@@ -3,8 +3,16 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def log
-    @order = Oder.find(params[:id])
+  def confirm
+    @order = Order.new(order_params)
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
+    @order.customer_id = current_customer.id
+    @cart_items = current_customer.cart_items
+    @order.payment_method = params[:order][:payment_method]
+    @total = 0
   end
 
   def thanks
@@ -19,12 +27,14 @@ class Public::OrdersController < ApplicationController
   def create
     order = Order.new
     order.save
-    redirect_to "root_path"
+    redirect_to confirm_orders_path
   end
 
   private
+
   def order_params
-    params.require(:order).permit(:name, :address, :postal_code)
+    params.require(:order).permit(:name, :address, :postal_code, :payment_method)
   end
+
 
 end

@@ -1,25 +1,51 @@
 <div class="container">
-  <h3>ショッピングカート</h3>
-    <div class="row">
-      <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
-      <table class="table_field">
-        <thead>
-          <tr>
-            <th>商品名</th>
-            <th>単価(税込)</th>
-            <th>数量</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
+  <div class="row">
+    <div class="col-md-7">
+      <h3>注文情報確認</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+            </tr>
+          </thead>
+          <% @cart_items.each do |cart_item| %>
+          <tbody>
+            <tr>
+              <td><%= cart_item.item.name %></td>
+              <td><%= cart_item.item.with_tax_price %></td>
+              <td><%= cart_item.amount %></td>
+              <td><%= cart_item.subtotal %></td>
+            </tr>
+          </tbody>
+          <% end %>
+          <p></p>
+        </table>
+    </div>
+
+    <div class="col-md-5">
+      <table class="table">
+        <tr>
+          <th>送料</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>商品合計</th>
+          <td><%= @total %></td>
+        </tr>
+        <tr>
+          <th>請求金額</th>
+          <td></td>
+        </tr>
       </table>
+    </div>
+
+        <h5>支払い方法</h5>
+        <%= @order.payment_method_i18n %>
+        <h5>お届け先</h5>
+        <%#= @order.select_address %>
     </div>
   </div>
 </div>

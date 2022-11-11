@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
       <h3>ジャンル編集</h3>
       <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
-      <table class="field">
+      <table class="table">
         <tbody>
           <tr>
             <td><%= f.label :"ジャンル名" %></td>
