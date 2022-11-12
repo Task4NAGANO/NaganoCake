@@ -42,10 +42,12 @@
       </table>
     </div>
 
-        <h5>支払い方法</h5>
-        <%= @order.payment_method_i18n %>
-        <h5>お届け先</h5>
-        <%#= @order.select_address %>
+        <h5>支払い方法</h5><br>
+        <%= @order.payment_method_i18n %><br>
+        <h5>お届け先</h5><br>
+        <%= @order.postal_code %>
+        <%= @order.address %>
+        <%= @order.name %>
     </div>
   </div>
 </div>

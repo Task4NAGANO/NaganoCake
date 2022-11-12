@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @order = Order.new
   end
@@ -6,13 +8,18 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @address = Address.find(params[:order][:address_id])
-    @order.postal_code = @address.postal_code
-    @order.address = @address.address
-    @order.name = @address.name
     @order.customer_id = current_customer.id
     @cart_items = current_customer.cart_items
     @order.payment_method = params[:order][:payment_method]
     @total = 0
+    @select_address = params[:order][:select_address]
+    if @select_address == "0"
+      @order.postal_code = current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.first_name + current_customer.last_name
+    elsif @select_address == "1"
+      
+    end
   end
 
   def thanks
