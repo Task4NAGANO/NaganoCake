@@ -1,23 +1,15 @@
 class Admin::OdersController < ApplicationController
-  def new
-  end
-
-  def index
-  end
 
   def show
+    byebug
+    @order_details = OrderDetail.where(order_id: params[:id])
+    @order = Order.find(params[:id])
   end
 
-  def confirm
-  end
-
-  def thanks
-  end
-
-  def create
-  end
+  private
 
   def order_params
-    params.require(:order).permit(:name, :postal_code, :address, :shopping_cost, :total_payment, :payment_method)
+    params.require(:order).permit(:name, :postal_code, :address,
+      :shopping_cost, :total_payment, :payment_method)
   end
 end
