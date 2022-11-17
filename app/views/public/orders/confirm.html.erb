@@ -48,12 +48,20 @@
     </div>
     </div>
 
-        <h5 class="name">支払い方法</h5>
-        <%= @order.payment_method_i18n %>
-        <h5 class="name">お届け先</h5>
-        〒<%= @order.postal_code %><br>
-        <%= @order.address %><br>
-        <%= @order.name %><br>
+        <table class="table">
+          <tr>
+            <th>支払い方法</th>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <th>お届け先</th>
+            <td>
+              〒<%= @order.postal_code %>
+              <%= @order.address %>
+              <%= @order.name %>
+            </td>
+          </tr>
+        </table>
         <%= form_with model: @order, url: orders_path do |f| %>
           <%= f.hidden_field :name, value: @order.name %>
           <%= f.hidden_field :address, value: @order.address %>

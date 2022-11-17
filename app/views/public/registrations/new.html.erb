@@ -11,18 +11,18 @@
           <tr>
             <div class="field">
               <td>名前</td>
-              <td><%= f.label "姓" %></td>
+              <td><%= f.label "(姓)" %></td>
               <td><%= f.text_field :first_name %></td>
-              <td><%= f.label "名" %></td>
+              <td><%= f.label "(名)" %></td>
               <td><%= f.text_field :last_name %></td>
             </div>
           </tr>
           <tr>
             <div class="field">
             <td>フリガナ</td>
-            <td><%= f.label "セイ" %></td>
+            <td><%= f.label "(セイ)" %></td>
             <td><%= f.text_field :first_name_kana %></td>
-            <td><%= f.label "メイ" %></td>
+            <td><%= f.label "(メイ)" %></td>
             <td><%= f.text_field :last_name_kana %></td>
             </div>
           </tr>
@@ -108,7 +108,9 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h3 class="title_name">既に登録済みの方</h3>
-      <p><%= render "public/shared/links" %> からログインしてください</p>
+      <p>
+        <%= link_to "こちら", new_customer_session_path %>
+        からログインしてください</p>
     </div>
   </div>
 </div>

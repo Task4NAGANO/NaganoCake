@@ -1,8 +1,6 @@
 class Admin::OdersController < ApplicationController
 
   def show
-    byebug
-    @order_details = OrderDetail.where(order_id: params[:id])
     @order = Order.find(params[:id])
   end
 

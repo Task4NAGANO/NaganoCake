@@ -26,7 +26,11 @@ Rails.application.routes.draw do
       end
     end
     resources :items, only:[:index, :show]
-    resources :customers, only:[:show, :edit, :quit, :update]
+    resources :customers, only:[:show, :edit, :update] do
+      collection do
+        get :quit
+      end
+    end
     resources :orders, only:[:new, :index, :show, :create] do
       collection do
         get :thanks

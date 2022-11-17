@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-md-12">
     <h4>注文情報入力</h4>
     <%= form_with model: @order, url: confirm_orders_path do |f| %>
       <p><strong>支払い方法</strong></p>
@@ -29,7 +29,7 @@
       <div class="address">
         <%= f.radio_button :select_address, 2 %>
         <%= f.label :select_address, "新しいお届け先" %>
-          <table class="table">
+          <table class=“table”>
             <tbody>
               <tr>
                 <th>郵便番号(ハイフンなし)</th>
