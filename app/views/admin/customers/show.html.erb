@@ -1,46 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
-      <h3><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h3>
-      <table class="table">
+    <div class="col-md-12">
+      <h3>
+        <%= @customer.first_name %><%= @customer.last_name %>さんの
+        注文履歴
+      </h3>
+      <table class="table_field" border="1">
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>会員ID</td>
-            <td><%= @customer.id %></td>
-          </tr>
-          <tr>
-            <td>氏名</td>
-            <td><%= @customer.first_name %></td>
-            <td><%= @customer.last_name %></td>
-          </tr>
-          <tr>
-            <td>フリガナ</td>
-            <td><%= @customer.first_name_kana %></td>
-            <td><%= @customer.last_name_kana %></td>
-          </tr>
-          <tr>
-            <td>郵便番号</td>
-            <td><%= @customer.postal_code %></td>
-          </tr>
-          <tr>
-            <td>住所</td>
-            <td><%= @customer.address %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= @customer.telephone_number %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= @customer.email %></td>
-          </tr>
-          <tr>
-            <td>会員ステータス</td>
-            <td><%#= @customer.is_deleted %></td>
+            <td><%#= @order.created_at.strftime('%Y/%m/%d') %></td>
+            <td>
+              <%# total = 0 %>
+              <%# @order.order_details.each do |order_detail| %>
+                <%# total += order_detail.amount %>
+              <%# end %>
+              <%#= total %>
+            </td>
+            <td><%#= @order.status %></td>
           </tr>
         </tbody>
       </table>
-      <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
     </div>
   </div>
 </div>

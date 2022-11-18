@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-7">
       <h3>ジャンル一覧・追加</h3>
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
       <%= f.label "ジャンル名" %>
@@ -15,14 +15,14 @@
             <th></th>
           </tr>
         </thead>
-        <tbody>
         <% @genres.each do |genre| %>
+        <tbody>
           <tr>
             <td><%= genre.name %></td>
             <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %></td>
           </tr>
-        <% end %>
         </tbody>
+        <% end %>
       </table>
     </div>
   </div>

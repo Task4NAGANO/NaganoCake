@@ -11,7 +11,6 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new
-    @address = Address.find(params[:order][:address_id])
     @order.customer_id = current_customer.id
     @order.shipping_cost = 800
     @cart_items = current_customer.cart_items

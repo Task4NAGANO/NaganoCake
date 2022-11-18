@@ -8,14 +8,15 @@ ja:
         wait_payment: "入金待ち"
         confirm_payment: "入金確認"
         making: "製作中"
+        preparing_ship: "発送準備中"
         finish_perpare: "発送済み"
     activerecord:
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
     order_detail:
-      manufacture_status:
-        impossible_manufacturepossibule: "着手不可"
-        waiting_manufacture: "制作待ち"
-        manufacturing: "制作中"
-        finish: "制作完了"
+      making_status:
+        production_not_possible: "製作不可"
+        production_pending: "製作待ち"
+        in_production: "製作中"
+        production_complete: "制作完了"

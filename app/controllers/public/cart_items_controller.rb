@@ -8,8 +8,10 @@ class Public::CartItemsController < ApplicationController
 
 
   def create
-    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
-      @same_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+    if current_customer.cart_items.find_by(item_id:
+        params[:cart_item][:item_id])
+      @same_item = current_customer.cart_items.find_by(item_id:
+        params[:cart_item][:item_id])
       @same_item.amount += params[:cart_item][:amount].to_i
       @same_item.update(amount: @same_item.amount)
     else

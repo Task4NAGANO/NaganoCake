@@ -21,7 +21,10 @@
           </tr>
           <tr>
             <td><%= f.label "ジャンル" %></td>
-            <td><%= f.text_field :genre %></td>
+            <td>
+              <%= f.select :genre_id,
+                options_from_collection_for_select(Genre.all, :id, :name) %>
+            </td>
           </tr>
           <tr>
             <td>税込価格</td>
@@ -29,11 +32,19 @@
           </tr>
           <tr>
             <td>販売ステータス</td>
-            <td></td>
+            <td>
+              <%= f.radio_button :is_active, 0 %>
+              <%= f.label :is_active, "販売中" %>
+
+              <%= f.radio_button :is_active, 1 %>
+              <%= f.label :is_active, "販売停止中" %>
+            </td>
           </tr>
           <tr>
             <td></td>
-            <td><%= f.submit "新規登録" %></td>
+            <td>
+              <%= f.submit "新規登録", class: "btn btn-success" %>
+              </td>
           </tr>
         </tbody>
       </table>

@@ -22,9 +22,10 @@
           <tr>
             <td><%= f.label "ジャンル" %></td>
             <td>
-              <%#= f.hidden_field :name, :value => "@genre" %>
-              <%#= f.select :genre %>
+              <%= f.select :genre_id,
+                options_from_collection_for_select(Genre.all, :id, :name) %>
             </td>
+          </tr>
           </tr>
           <tr>
             <td>税込価格</td>
