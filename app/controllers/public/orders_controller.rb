@@ -41,17 +41,20 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    order.save
-    create_order_details(order)
-    CartItem.destroy_all
-    redirect_to thanks_orders_path
+    @order = Order.new(order_params)
+    if @order.save
+      create_order_details(@order)
+      CartItem.destroy_all
+      redirect_to thanks_orders_path
+    else
+      render :new
+    end
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:name, :address, :postal_code,
+    params.require(:order).permit(:name, :address, :postal_code, :status,
       :payment_method, :total_payment, :customer_id, :shipping_cost)
   end
 

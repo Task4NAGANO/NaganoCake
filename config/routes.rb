@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/" => "homes#top"
-    resources :oders, only:[:show, :update]
-    resources :customers, only:[:index, :show, :edit]
+    resources :orders, only:[:show, :update]
+    resources :order_details, only:[:update]
+    resources :customers, only:[:index, :show, :edit, :update]
     resources :genres, only:[:index, :edit, :create, :update]
     resources :items, only:[:index, :new, :show, :edit, :create, :update, :destroy]
   end
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
     resources :customers, only:[:show, :edit, :update] do
       collection do
         get :quit
+        patch "out"
       end
     end
     resources :orders, only:[:new, :index, :show, :create] do

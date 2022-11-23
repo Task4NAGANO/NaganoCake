@@ -1,7 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
+    <div class="col-md-7">
       <h3>商品一覧</h3>
+    </div>
+    <div class="col-md-5">
+      <%= link_to new_admin_item_path do %>
+        <i class="fa-sharp fa-solid fa-square-plus"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
@@ -9,7 +18,7 @@
             <th>商品名</th>
             <th>税抜価格</th>
             <th>ジャンル</th>
-            <th>販売ステータス</th>
+            <th>ステータス</th>
           </tr>
         </thead>
         <tbody>
@@ -23,11 +32,22 @@
             </td>
             <td><%= item.price %></td>
             <td><%= item.genre.name %></td>
-            <td><%= item.is_active %></td>
+            <td>
+              <% if item.is_active %>
+                販売中
+              <% else %>
+                販売停止中
+              <% end %>
+              </td>
           </tr>
         <% end %>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= paginate @items %>
     </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-7 col-lg-7 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
       <h3><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h3>
-      <%= form_with model: @customer do |f| %>
       <table class="table">
         <tbody>
           <tr>
@@ -37,7 +37,13 @@
           </tr>
           <tr>
             <td><%= f.label "会員ステータス" %></td>
-            <td><%#= @customer.is_deleted %></td>
+            <td>
+              <%= f.radio_button :is_deleted, false %>
+              <%= f.label :is_deleted, "有効" %>
+
+              <%= f.radio_button :is_deleted, true %>
+              <%= f.label :is_deleted, "退会" %>
+            </td>
           </tr>
           <tr>
             <td></td>

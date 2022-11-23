@@ -1,8 +1,9 @@
 class Public::ItemsController < ApplicationController
   before_action :authenticate_customer!, only: [:show]
-  
+
   def index
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).per(8)
+    @item_all = Item.all
   end
 
   def show
@@ -15,7 +16,8 @@ class Public::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :introduction, :price)
+    params.require(:item).permit(:image, :name, :introduction, :price,
+      :is_actice, :genre_id)
   end
 
 end

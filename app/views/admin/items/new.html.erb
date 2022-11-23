@@ -1,6 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
+      <% if @item.errors.any? %>
+      <%= @item.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= form_with model: @item, url: admin_items_path do |f| %>
       <h3>商品新規登録</h3>
       <table class="table">
@@ -33,10 +41,10 @@
           <tr>
             <td>販売ステータス</td>
             <td>
-              <%= f.radio_button :is_active, 0 %>
+              <%= f.radio_button :is_active, true %>
               <%= f.label :is_active, "販売中" %>
 
-              <%= f.radio_button :is_active, 1 %>
+              <%= f.radio_button :is_active, false %>
               <%= f.label :is_active, "販売停止中" %>
             </td>
           </tr>

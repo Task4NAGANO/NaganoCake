@@ -1,22 +1,28 @@
 ja:
+  activerecord:
+    attributes:
+      order:
+        payment_method: "支払方法"
   enums:
     order:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
-      order_status:
+      status:
         wait_payment: "入金待ち"
         confirm_payment: "入金確認"
         making: "製作中"
         preparing_ship: "発送準備中"
-        finish_perpare: "発送済み"
-    activerecord:
-    errors:
-      messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
+        finish_prepare: "発送済み"
     order_detail:
       making_status:
         production_not_possible: "製作不可"
         production_pending: "製作待ち"
         in_production: "製作中"
         production_complete: "制作完了"
+  errors:
+    messages:
+      record_invalid: "バリデーションに失敗しました: %{errors}"
+      inclusion: "%{attribute}が正しくありません"
+
+

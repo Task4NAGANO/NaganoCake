@@ -1,7 +1,11 @@
-<h3>注文履歴詳細</h3>
 <div class="container">
   <div class="row">
     <div class="col-md-5">
+      <h3>注文履歴詳細</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
       <table class="order" border="1">
         注文情報
         <thead>
@@ -23,7 +27,7 @@
           </tr>
           <tr>
             <th>ステータス</th>
-            <td><%= @order.status %></td>
+            <td><%= @order.status_i18n %></td>
           </tr>
         </thead>
       </table>

@@ -18,6 +18,13 @@ class Public::CustomersController < ApplicationController
   def quit
   end
 
+  def out
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    flash[:notice] = "退会処理を実行しました"
+    redirect_to root_path
+  end
+
   private
 
   def customer_params

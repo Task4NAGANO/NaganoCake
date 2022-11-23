@@ -7,14 +7,14 @@
       <p>プリン</p>
       <p>キャンディ</p>
     </div>
-    <div class="col-md-3">
-      <%= image_tag @item.image, size: "250x250" %>
+    <div class="col-md-4">
+      <%= image_tag @item.image, size: "300x250" %>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <table class="table">
         <tbody>
           <tr>
-            <td><%= @item.name %></td>
+            <h3><%= @item.name %></h3>
           </tr>
           <tr>
             <td><%= @item.introduction %></td>
