@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :customers, only:[:show, :edit, :update] do
       collection do
         get :quit
-        patch "out"
+        patch :out
       end
     end
     resources :orders, only:[:new, :index, :show, :create] do
